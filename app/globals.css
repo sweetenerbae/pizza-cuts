@@ -75,10 +75,7 @@ button:active {
   line-height: 1.7;
 }
 .brand-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  image-rendering: pixelated;
+  font: 42px monospace;
 }
 .version {
   font: 12px monospace;
@@ -523,8 +520,7 @@ footer {
     gap: 8px;
   }
   .brand-icon {
-    width: 31px;
-    height: 31px;
+    font-size: 31px;
   }
   .version {
     font-size: 10px;

@@ -1,0 +1,5 @@
+pizza-porovnu.ru, www.pizza-porovnu.ru {
+	encode zstd gzip
+	root * /srv/pizza-porovnu/current
+	file_server
+}

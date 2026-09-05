@@ -35,7 +35,7 @@ export default function Home() {
   const cuts = people === 1 ? 0 : people % 2 === 0 ? people / 2 : people;
   const update = (n: number) => { const next = Math.max(1, Math.min(100,n)); setValue(String(next)); setPeople(next); setCut(false); };
   return <div className="site-shell">
-    <header className="topbar"><a className="brand" href="/" aria-label="Пицца поровну — главная"><span className="brand-icon">✳</span> ПИЦЦА ПОРОВНУ<span className="version">v.1.0</span></a><span className="top-note">МАТЕМАТИКА, КОТОРУЮ МОЖНО СЪЕСТЬ</span></header>
+    <header className="topbar"><a className="brand" href="/" aria-label="Пицца поровну — главная"><span className="brand-icon">✳</span> ПИЦЦА ПОРОВНУ<span className="version">v.1.0</span></a><span className="top-note">НЕ ДЕРИТЕСЬ</span></header>
     <main>
       <div className="intro"><span className="eyebrow"><span className="status-dot"/> АНТИКОНФЛИКТНЫЙ КАЛЬКУЛЯТОР</span><h1>Дружба дружбой.<br/><span>А пиццу — поровну.</span></h1></div>
       <section className="calculator" aria-label="Калькулятор разреза пиццы">
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="visual-caption"><span className="legend-line"/>{cut?'Пунктир — здесь режем': 'Нажми «Разрезать по-братски»'}<span className="angle-badge">{fmt(angle)}° / кусочек</span></div>
         </div>
       </section>
-      <section className="instruction"><span className="instruction-icon"><Scissors size={24}/></span><div><h2>{people===1?'Нож сегодня отдыхает.':people%2===0?'Через центр. От края до края.':'От центра к краю. И так по кругу.'}</h2><p>{people===1?'Один человек, одна пицца. Идеальные отношения.':people%2===0?`Сделай ${cuts} сквозных разрезов через центр, поворачивая нож на ${fmt(angle)}°. Получится ${people} равных кусочков.`:`Сделай ${cuts} надрезов от центра к корочке с шагом ${fmt(angle)}°. Не режь насквозь: получится вдвое больше кусочков.`}</p></div><span className="instruction-note">РОВНО — ЭТО ЛЮБОВЬ ♡</span></section>
+      <section className="instruction"><span className="instruction-icon"><Scissors size={24}/></span><div><h2>{people===1?'Нож сегодня отдыхает.':people%2===0?'Через центр. От края до края.':'От центра к краю. И так по кругу.'}</h2><p>{people===1?'Один человек, одна пицца. Идеальные отношения.':people%2===0?`Сделай ${cuts} сквозных разрезов через центр, поворачивая нож на ${fmt(angle)}°. Получится ${people} равных кусочков.`:`Сделай ${cuts} надрезов от центра к корочке с шагом ${fmt(angle)}°. Не режь насквозь: получится вдвое больше кусочков.`}</p></div></section>
     </main><footer><span>© ПИЦЦА ПОРОВНУ</span><span>СДЕЛАНО С ГОЛОДОМ <span className="heart">♥</span></span><span>360° СПРАВЕДЛИВОСТИ</span></footer>
   </div>;
 }

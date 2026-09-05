@@ -35,7 +35,7 @@ export default function Home() {
   const cuts = people === 1 ? 0 : people % 2 === 0 ? people / 2 : people;
   const update = (n: number) => { const next = Math.max(1, Math.min(100,n)); setValue(String(next)); setPeople(next); setCut(false); };
   return <div className="site-shell">
-    <header className="topbar"><a className="brand" href="/" aria-label="Пицца поровну — главная"><span className="brand-icon">✳</span> ПИЦЦА ПОРОВНУ<span className="version">v.1.0</span></a><span className="top-note">НЕ ДЕРИТЕСЬ</span></header>
+    <header className="topbar"><a className="brand" href="/" aria-label="Пицца поровну — главная"><img className="brand-icon" src="/pizza.png" alt=""/> ПИЦЦА ПОРОВНУ<span className="version">v.1.0</span></a><span className="top-note">НЕ ДЕРИТЕСЬ</span></header>
     <main>
       <div className="intro"><span className="eyebrow"><span className="status-dot"/> АНТИКОНФЛИКТНЫЙ КАЛЬКУЛЯТОР</span><h1>Дружба дружбой.<br/><span>А пиццу — поровну.</span></h1></div>
       <section className="calculator" aria-label="Калькулятор разреза пиццы">

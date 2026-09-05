@@ -355,6 +355,11 @@ h1 span {
   max-width: 460px;
   aspect-ratio: 1;
 }
+.pizza-wrap picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .pizza-wrap img {
   width: 100%;
   height: 100%;

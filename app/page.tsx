@@ -37,14 +37,13 @@ export default function Home() {
   return <div className="site-shell">
     <header className="topbar"><a className="brand" href="/" aria-label="Пицца поровну — главная"><span className="brand-icon">✳</span> ПИЦЦА ПОРОВНУ<span className="version">v.1.0</span></a><span className="top-note">МАТЕМАТИКА, КОТОРУЮ МОЖНО СЪЕСТЬ</span></header>
     <main>
-      <div className="intro"><span className="eyebrow"><span className="status-dot"/> АНТИКОНФЛИКТНЫЙ КАЛЬКУЛЯТОР</span><h1>Дружба дружбой.<br/><span>А пиццу — поровну.</span></h1><p>Сколько вас? Посчитаем разрезы, пока пицца не остыла.</p></div>
+      <div className="intro"><span className="eyebrow"><span className="status-dot"/> АНТИКОНФЛИКТНЫЙ КАЛЬКУЛЯТОР</span><h1>Дружба дружбой.<br/><span>А пиццу — поровну.</span></h1></div>
       <section className="calculator" aria-label="Калькулятор разреза пиццы">
         <div className="controls">
           <div className="step-label"><span>01</span> СОБЕРИ СВОИХ</div>
           <label className="input-label" htmlFor="people">Сколько голодных?</label>
           <div className="counter"><button aria-label="На одного меньше" disabled={people <= 1} onClick={()=>update(people-1)}><Minus/></button><input id="people" type="text" inputMode="numeric" value={value} aria-invalid={!valid} aria-describedby="input-help" onChange={e=>{setValue(e.target.value);if(/^\d+$/.test(e.target.value)&&+e.target.value>=1&&+e.target.value<=100){setPeople(+e.target.value);setCut(true);}}}/><button aria-label="На одного больше" disabled={people >= 100} onClick={()=>update(people+1)}><Plus/></button></div>
           <p id="input-help" className={valid?'input-help':'input-help error'}>{valid?'Человек. Того, кто «только кусочек», тоже считаем.':'Введи целое число от 1 до 100.'}</p>
-          <div className="presets">{[2,4,8,15].map(n=><button key={n} onClick={()=>update(n)} aria-pressed={people===n} className={people===n?'selected':''}>{n===2?'На двоих':n===4?'Компания':n===8?'Тусовка':'День рождения'}<span>{n}</span></button>)}</div>
           <button className="cut-button" disabled={!valid} onClick={()=>setCut(!cut)}>{cut?<RotateCcw size={20}/>:<Scissors size={20}/>} {cut?'Убрать разметку':'Разрезать по-братски'}<span>↗</span></button>
           <div className="receipt" aria-live="polite" aria-atomic="true"><div className="receipt-heading">ЧЕК СПРАВЕДЛИВОСТИ <span>✓</span></div><div className="stats"><div><strong>{cuts}</strong><span>{people===1?'разрезов':people%2===0?'сквозных разрезов':'надрезов от центра'}</span></div><div><strong>{fmt(angle)}<i>°</i></strong><span>угол кусочка</span></div></div><div className="receipt-bottom">{people===1?'Вся пицца твоя. И никаких переговоров.':people>20?'Это уже дегустация. Но зато честная.':'Никто не обделён.'}<span>☺</span></div></div>
         </div>
@@ -52,7 +51,7 @@ export default function Home() {
           <div className="pizza-stage"><div className="pizza-wrap"><img src="/pizza.png" alt="Пиксельная пицца с пепперони, вид сверху"/><svg viewBox="0 0 400 400" role="img" aria-label={`Схема: ${people} равных частей, угол ${fmt(angle)} градуса`}>
             {cut&&people>1&&Array.from({length:people},(_,i)=>{const a=(i*angle-90)*Math.PI/180;return <line key={`${people}-${i}`} className="cut-line" x1="200" y1="200" x2={200+195*Math.cos(a)} y2={200+195*Math.sin(a)} style={{animationDelay:`${Math.min(i*25,600)}ms`}}/>;})}
             {cut&&people>1&&<><circle cx="200" cy="200" r="5" fill="#fff8dc" stroke="#5b2523" strokeWidth="2"/><path d={`M 200 152 A 48 48 0 ${angle>180?1:0} 1 ${200+48*Math.sin(angle*Math.PI/180)} ${200-48*Math.cos(angle*Math.PI/180)}`} fill="none" stroke="#fff8dc" strokeWidth="2"/></>}
-          </svg></div><span className="pizza-sticker">{people===1?'МОЯ. ВСЯ.':`${people} КУСОЧКОВ`}<small>{people===1?'имеешь право':'0 ПОВОДОВ ДЛЯ ССОР'}</small></span></div>
+          </svg></div><span className="pizza-sticker">{people===1?'МОЯ. ВСЯ.':`${people} КУСОЧКОВ`}<small>{people===1?'имеешь право':'0 ПОВОДОВ ДЛЯ ДРАК'}</small></span></div>
           <div className="visual-caption"><span className="legend-line"/>{cut?'Пунктир — здесь режем': 'Нажми «Разрезать по-братски»'}<span className="angle-badge">{fmt(angle)}° / кусочек</span></div>
         </div>
       </section>
